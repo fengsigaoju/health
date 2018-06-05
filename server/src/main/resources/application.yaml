@@ -1,0 +1,13 @@
+server:
+  port: 8760
+eureka:
+  instance:
+    hostname: 39.105.110.91
+  client:
+    registerWithEureka: false
+    fetchRegistry: false
+    serviceUrl:
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+  server:
+    enable-self-preservation: false #关闭自我保护(当15分钟内超过85%的客户端都没有心跳认为客户端和注册中心出现问题,进入自我保护阶段)
+

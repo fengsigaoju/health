@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--设置名字空间-->
+<mapper namespace="com.fengsigaoju.health.friend.dao.FriendDao">
+
+    <!--设置返回结果集,将数据库字段和java对象字段建立联系,type是java对象路径,id是结果集的唯一标识-->
+    <resultMap type="FriendDO" id="FRIENDDO">
+        <!--数据库是主键用id标签,非主键用result标签,column是数据库的字段名,property是java对象的字段名-->
+        <id column="friend_id" jdbcType="BIGINT" property="friendId"/>
+        <result column="request_id" jdbcType="BIGINT" property="requestId"/>
+        <result column="response_id" jdbcType="BIGINT" property="responseId"/>
+        <result column="friend_status" jdbcType="VARCHAR" property="friendStatus"/>
+        <result column="gmt_modified" jdbcType="VARCHAR" property="gmtModified"/>
+        <result column="gmt_create" jdbcType="VARCHAR" property="gmtCreate"/>
+        <result column="remark" jdbcType="VARCHAR" property="remark"/>
+    </resultMap>
+
+    <!--根据响应用户id和状态来查询(显示被加好友)-->
+    <select id="listByResponseIdAndStatus" parameterType="Map" resultMap="FRIENDDO">
+        SELECT  * FROM friend_list where response_id=#{responseId} and friend_status=#{friendStatus} order by gmt_modified desc
+    </select>
+
+    <!--根据响应用户id和状态来查询(显示添加好友)-->
+    <select id="listByRequestIdAndStatus" parameterType="Map" resultMap="FRIENDDO">
+        SELECT * FROM friend_list where request_id=#{requestId} and friend_status=#{friendStatus} order by gmt_modified desc
+    </select>
+
+    <insert id="addFriend" parameterType="FriendDO" useGeneratedKeys="true" keyProperty="friendId">
+        INSERT INTO friend_list(request_id,response_id,friend_status,gmt_modified,gmt_create,remark) VALUES(#{requestId},#{responseId},#{friendStatus},CURRENT_TIMESTAMP ,CURRENT_TIMESTAMP,#{remark})
+    </insert>
+
+    <update id="updateByFriendId" parameterType="FriendDO">
+        UPDATE friend_list SET request_id=#{requestId} ,response_id=#{responseId},friend_status=#{friendStatus},remark=#{remark},gmt_modified=CURRENT_TIMESTAMP where friend_id=#{friendId}
+    </update>
+
+    <select id="queryByFriendId" parameterType="Long" resultMap="FRIENDDO">
+        SELECT  * FROM  friend_list WHERE  friend_id=#{friendId}
+    </select>
+
+    <update id="deleteByFriendId" parameterType="Long">
+        UPDATE friend_list SET friend_status='DELETED' WHERE friend_id=#{friendId}
+    </update>
+
+</mapper>

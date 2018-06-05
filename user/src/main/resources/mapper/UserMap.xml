@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.fengsigaoju.health.user.dao.UserDao">
+
+    <!--设置返回结果集,将数据库字段和java对象字段建立联系,type是java对象路径,id是结果集的唯一标识-->
+    <resultMap type="UserDO" id="USERDO">
+        <!--数据库是主键用id标签,非主键用result标签,column是数据库的字段名,property是java对象的字段名-->
+        <id column="user_id" jdbcType="BIGINT" property="userId"/>
+        <result column="username" jdbcType="VARCHAR" property="username"/>
+        <result column="password" jdbcType="VARCHAR" property="password"/>
+        <result column="user_status" jdbcType="VARCHAR" property="userStatus"/>
+        <result column="gmt_modified" jdbcType="TIMESTAMP" property="gmtModified"/>
+        <result column="gmt_create" jdbcType="TIMESTAMP" property="gmtCreate"/>
+        <result column="link_phone" jdbcType="BIGINT" property="linkPhone"/>
+        <result column="picture_url" jdbcType="VARCHAR" property="pictureUrl"/>
+    </resultMap>
+
+    <select id="queryByUserId" parameterType="Long" resultMap="USERDO">
+        SELECT * FROM user_list WHERE  user_status!='DELETED' and user_id=#{userId}
+    </select>
+
+    <select id="listAllUsers" resultMap="USERDO">
+        SELECT * FROM user_list WHERE user_status!='DELETED'
+    </select>
+
+    <select id="listByUserNameAndPassword" parameterType="Map" resultMap="USERDO">
+        SELECT * FROM user_list WHERE user_status!='DELETED' and username=#{username} and password=#{password}
+    </select>
+
+    <insert id="addUser" useGeneratedKeys="true" keyProperty="userId" parameterType="UserDO">
+        INSERT INTO user_list(username,password,gmt_create,gmt_modified,user_status,link_phone,picture_url) VALUES (#{username},#{password},CURRENT_TIMESTAMP ,CURRENT_TIMESTAMP ,#{userStatus},#{linkPhone},#{pictureUrl});
+    </insert>
+
+    <select id="listByUserName" parameterType="Map" resultMap="USERDO">
+        SELECT  * FROM user_list WHERE user_status!='DELETED' and username=#{username}
+    </select>
+
+    <update id="updateByUserId" parameterType="UserDO">
+        UPDATE user_list set username=#{username},password=#{password},user_status=#{userStatus},gmt_modified=CURRENT_TIMESTAMP ,link_phone=#{linkPhone},picture_url=#{pictureUrl} where user_id=#{userId}
+    </update>
+
+</mapper>

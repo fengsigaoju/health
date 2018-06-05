@@ -1,0 +1,10 @@
+2018-05-09 00:29:44,881 [http-nio-8765-exec-5] INFO  c.f.h.f.s.impl.FriendServiceImpl 17 - enter in FriendServiceImpl[listByRequestIdAndStatus],requestId:3,friendStatus:SOLVING
+2018-05-09 00:32:57,452 [http-nio-8765-exec-8] INFO  c.f.h.f.s.impl.FriendServiceImpl 17 - enter in FriendServiceImpl[listByRequestIdAndStatus],requestId:3,friendStatus:SOLVING
+2018-05-09 00:33:28,525 [http-nio-8765-exec-1] INFO  c.f.h.f.s.impl.FriendServiceImpl 17 - enter in FriendServiceImpl[listByRequestIdAndStatus],requestId:3,friendStatus:SOLVING
+2018-05-09 00:34:28,113 [http-nio-8765-exec-3] INFO  c.f.h.f.s.impl.FriendServiceImpl 17 - enter in FriendServiceImpl[listByRequestIdAndStatus],requestId:3,friendStatus:SOLVING
+2018-05-09 00:34:59,244 [http-nio-8765-exec-5] INFO  c.f.h.f.s.impl.FriendServiceImpl 17 - enter in FriendServiceImpl[listByRequestIdAndStatus],requestId:3,friendStatus:SOLVING
+2018-05-09 00:37:13,656 [http-nio-8765-exec-1] INFO  c.f.h.f.s.impl.FriendServiceImpl 17 - enter in FriendServiceImpl[listByRequestIdAndStatus],requestId:3,friendStatus:SOLVING
+2018-05-09 00:38:14,792 [http-nio-8765-exec-1] INFO  c.f.h.f.s.impl.FriendServiceImpl 17 - enter in FriendServiceImpl[listByRequestIdAndStatus],requestId:3,friendStatus:SOLVING
+2018-05-09 00:39:12,014 [http-nio-8765-exec-1] INFO  c.f.h.f.s.impl.FriendServiceImpl 17 - enter in FriendServiceImpl[listByRequestIdAndStatus],requestId:3,friendStatus:SOLVING
+2018-05-09 00:39:29,934 [http-nio-8765-exec-3] INFO  c.f.h.f.s.impl.FriendServiceImpl 17 - enter in FriendServiceImpl[listByResponseIdAndStatus],responseId:3,friendStatus:SOLVING
+2018-05-09 00:42:14,407 [http-nio-8765-exec-2] INFO  c.f.h.f.s.impl.FriendServiceImpl 17 - enter in FriendServiceImpl[addFriend],requestId:3,reponseId:2

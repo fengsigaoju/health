@@ -1,0 +1,19 @@
+@startuml
+
+actor 用户A
+actor 用户B
+用户A->好友搜索:搜索用户B
+alt 用户B存在
+用户A->用户B:请求添加好友
+ alt 用户B同意
+ 用户B->用户A:同意添加好友
+ else 用户B拒绝
+ 用户B->用户A:拒绝添加好友
+ end
+else
+用户A->用户B:撤销添加好友请求
+end
+
+
+
+@enduml

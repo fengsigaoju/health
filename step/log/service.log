@@ -1,0 +1,4 @@
+2018-05-24 18:56:52,684 [http-nio-8764-exec-1] INFO  c.f.h.s.service.impl.StepServiceImpl 17 - enter in StepServiceImpl[knnAlgorithm],userId:2
+2018-05-24 18:58:09,406 [http-nio-8764-exec-1] INFO  c.f.h.s.service.impl.StepServiceImpl 17 - enter in StepServiceImpl[knnAlgorithm],userId:2
+2018-05-24 21:04:38,883 [http-nio-8764-exec-1] INFO  c.f.h.s.service.impl.StepServiceImpl 17 - enter in StepServiceImpl[knnAlgorithm],userId:1
+2018-05-24 21:06:49,439 [http-nio-8764-exec-1] INFO  c.f.h.s.service.impl.StepServiceImpl 17 - enter in StepServiceImpl[knnAlgorithm],userId:1

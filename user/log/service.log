@@ -1,0 +1,7 @@
+2018-05-16 08:21:16,288 [http-nio-8763-exec-5] INFO  c.f.h.u.service.impl.UserServiceImpl 17 - enter in uploadPicture,pictureName:IMG_20180509_140923.jpg,userId:1
+2018-05-16 08:27:43,493 [http-nio-8763-exec-1] INFO  c.f.h.u.service.impl.UserServiceImpl 17 - enter in uploadPicture,pictureName:IMG_20180509_140921_1.jpg,userId:1
+2018-05-16 08:32:26,016 [http-nio-8763-exec-1] INFO  c.f.h.u.service.impl.UserServiceImpl 17 - enter in uploadPicture,pictureName:IMG_20180509_140923.jpg,userId:1
+2018-05-16 08:33:38,606 [http-nio-8763-exec-3] INFO  c.f.h.u.service.impl.UserServiceImpl 17 - enter in uploadPicture,pictureName:IMG_20180509_140923.jpg,userId:1
+2018-05-16 08:40:49,991 [http-nio-8763-exec-1] INFO  c.f.h.u.service.impl.UserServiceImpl 17 - enter in uploadPicture,pictureName:IMG_20180509_140921_1.jpg,userId:1
+2018-05-16 08:46:34,909 [http-nio-8763-exec-1] INFO  c.f.h.u.s.impl.LoginServiceImpl 17 - enter in LoginServiceImpl[loginAndReturnSessionId,username:宋宇通,password:syt19960404
+2018-05-16 08:46:39,111 [http-nio-8763-exec-1] INFO  c.f.h.u.service.impl.UserServiceImpl 17 - enter in [UserServiceImpl]hasMatchUser.username:宋宇通,password:3c5dbb897126c353e5dbe5b457a19a8e

@@ -1,0 +1,63 @@
+@startuml
+node zuul网关 {
+   [日志系统]->[白名单过滤]
+   [白名单过滤]->[防重放系统]
+   [防重放系统]->[反向代理]
+   [防重放系统]->redis:根据token获取用户信息
+}
+用户请求-->[日志系统]:用户发送ajax请求(携带token,timestamp和签名)
+database redis集群{
+database redis{
+
+}
+database redis2{
+
+}
+}
+redis->redis2:主从备份
+
+node 注册中心集群{
+ 反向代理->注册中心集群
+ node 注册中心1{
+ }
+ 注册中心1->注册中心2:互相注册保证心跳
+ 注册中心2->注册中心1:互相注册保证心跳
+ node 注册中心2{
+ }
+}
+
+node docker容器1{
+ folder 用户信息微服务{
+  [controller]->[service]
+  [service]->[dao]
+  [dao]->user_list
+}
+database user_list{
+
+}
+}
+node docker容器2{
+  folder  步数信息微服务{
+  }
+  步数信息微服务->step_list
+  database step_list{
+
+  }
+}
+node docker容器3{
+ folder 好友信息微服务{
+
+ }
+ 好友信息微服务->friend_list
+ database friend_list{
+
+ }
+ 好友信息微服务->步数信息微服务:请求好友步数
+ 好友信息微服务->用户信息微服务:请求用户信息
+ }
+ cloud ELK{
+   好友信息微服务->ELK:采集日志
+   步数信息微服务->ELK:采集日志
+   用户信息微服务->ELK:采集日志
+  }
+@enduml

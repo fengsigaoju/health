@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.fengsigaoju.health.step.dao.StepDao">
+
+    <!--这里是避免对于< >的解析-->
+    <select id="countByTimePoint" parameterType="Map"  resultType="java.lang.Long" >
+    <![CDATA[
+    SELECT count(*) FROM step_list WHERE  user_id=#{userId} and timepoint>=#{startTime} and timepoint<=#{endTime}
+        ]]>
+</select>
+
+    <insert id="addStep" useGeneratedKeys="true" keyProperty="stepId"
+            parameterType="StepDO">
+    INSERT INTO step_list(user_id,timepoint,x_axis,y_axis,z_axis) VALUES(#{userId},CURRENT_TIMESTAMP ,#{xAxis},#{yAxis},#{zAxis})
+</insert>
+
+
+
+</mapper>

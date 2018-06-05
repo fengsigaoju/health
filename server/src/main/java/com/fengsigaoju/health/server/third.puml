@@ -1,0 +1,21 @@
+@startuml
+(*)->监听加速度变化
+If "时间间隔小于100毫秒" then
+--> [Yes] "计算残余差值"
+--> If "残余差值大于阈值" then
+--> [Yes]  If "判断当前节点是不是上升节点" then
+--> [Yes]  设置上升标志位true
+           else
+           --> If "判断当前节点是不是下降节点"并且上升标志位为真 then
+           --> [Yes] 认定该节点是下降节点并且之前为一步
+           -->设置上升标志位为false
+           Endif
+           Endif
+     else
+     -->[NO] 用新的加速度替换旧的加速度
+     --> 监听加速度变化
+     Endif
+else
+-->[NO] 监听加速度变化
+Endif
+@enduml
